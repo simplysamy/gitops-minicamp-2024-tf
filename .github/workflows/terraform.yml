@@ -2,7 +2,7 @@ name: 'Terraform'
 
 on:
   push:
-    branches: [ $default-branch ]
+    branches: [ 'main' ]
   pull_request:
 
 permissions:
@@ -37,7 +37,7 @@ jobs:
     - name: Terraform Format
       run: terraform  -chdir="./terraform" fmt -check
 
-    # Generates an execution plan for Terraform
+    # Generates an execution plan for Terraform .continue-on-error: 
     - name: Terraform Plan
       run: terraform plan -input=false
 
