@@ -1,9 +1,6 @@
-name: 'Terraform'
+name: 'Apply'
 
-on:
-  push:
-    branches: [ 'main' ]
-  pull_request:
+on: workflow_dispatch
 
 permissions:
   id-token: write
@@ -48,3 +45,7 @@ jobs:
     # Generates an execution plan for Terraform .continue-on-error: 
     - name: Terraform Plan
       run: terraform plan -input=false
+
+    # Apply the generated plan
+    - name: Terraform Apply
+      run: terraform apply -auto-approve  

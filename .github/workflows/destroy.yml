@@ -1,9 +1,6 @@
-name: 'Terraform'
+name: 'Destroy'
 
-on:
-  push:
-    branches: [ 'main' ]
-  pull_request:
+on: workflow_dispatch
 
 permissions:
   id-token: write
@@ -48,3 +45,7 @@ jobs:
     # Generates an execution plan for Terraform .continue-on-error: 
     - name: Terraform Plan
       run: terraform plan -input=false
+
+    # Destroy the generated plan
+    - name: Terraform Destroy
+      run: terraform destroy -auto-approve  
