@@ -51,4 +51,4 @@ jobs:
 
     # Apply the generated plan
     - name: Terraform Apply
-      run: terraform appy -auto-approve  
+      run: terraform apply -auto-approve  
