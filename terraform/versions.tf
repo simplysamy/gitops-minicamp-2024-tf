@@ -1,5 +1,5 @@
 terraform {
-    required_version = "=> 1.9.5"
+    required_version = "~> 1.9.5"
     backend "s3" {
     bucket = "gitops-tf-backend-7079"
     key    = "terraform.tfstate"
