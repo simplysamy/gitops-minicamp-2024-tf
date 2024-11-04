@@ -105,7 +105,7 @@ check "grafana_health_check" {
   }
 
   assert {
-    condition     = data.http.terraform_io.status_code == 200
-    error_message = "Grafana is unaccessible aat port 3000"
+    condition     = data.http.test.status_code == 200
+    error_message = "Grafana is unaccessible at port 3000"
   }
 }
