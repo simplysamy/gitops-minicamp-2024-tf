@@ -95,3 +95,17 @@ resource "aws_instance" "grafana_server" {
     Name = "grafana-server"
   }
 }
+
+check "grafana_health_check" {
+    data "http" "test" {
+    url = "https://${aws_instance.grafana_server.public_ip}:3000"
+    retry {
+      attempts = 5
+    }
+  }
+
+  assert {
+    condition = data.http.terraform_io.status_code == 200
+    error_message = "Grafana is unaccessible aat port 3000"
+  }
+}
