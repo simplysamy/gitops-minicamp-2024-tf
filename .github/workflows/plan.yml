@@ -45,10 +45,11 @@ jobs:
     - name: Terraform Format
       run: terraform fmt -check
 
-    # Generates an execution plan for Terraform .continue-on-error: 
-    - name: Terraform Plan
-      run: terraform plan -input=false
 
     # Generates an execution plan in JSON: 
     - name: Terraform Plan
-      run: terraform plan -json 
+      id: plan
+      run: |
+        terraform plan -out=plan.tfplan
+        terraform show -json plan.tfplan > /tmp/plan.json
+        cat /tmp/plan.json
