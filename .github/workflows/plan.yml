@@ -48,3 +48,7 @@ jobs:
     # Generates an execution plan for Terraform .continue-on-error: 
     - name: Terraform Plan
       run: terraform plan -input=false
+
+    # Generates an execution plan in JSON: 
+    - name: Terraform Plan
+      run: terraform plan -json 
