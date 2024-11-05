@@ -51,8 +51,8 @@ jobs:
       id: plan
       run: |
         terraform plan -out=plan.tfplan
-        terraform show -json plan.tfplan > /tmp/plan.json
-        cat /tmp/plan.json
+        terraform show -json plan.tfplan > /d/Documents/Terraform-Gitops/plan.json
+        cat /d/Documents/Terraform-Gitops/plan.json
 
     - name: Setup OPA
       uses: open-policy-agent/setup-opa@v2
