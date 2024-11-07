@@ -103,9 +103,8 @@ resource "aws_instance" "grafana_server" {
 #       attempts = 5
 #     }
 #   }
-
 #   assert {
 #     condition     = data.http.test.status_code == 200
-#     error_message = "Grafana is unaccessible at port 3000"
+#     error_message = "Grafana is inaccessible on port 3000."
 #   }
 # }
