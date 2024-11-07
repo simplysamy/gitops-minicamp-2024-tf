@@ -93,6 +93,7 @@ resource "aws_instance" "grafana_server" {
 
   tags = {
     Name = "grafana-server"
+    Environment = "Production"
   }
 }
 
